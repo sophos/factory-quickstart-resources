@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "value": "westcentralus"
+            "value": "{| vars.location |}"
         },
         "storageAccountName": {
-            "value": "corona01"
+            "value": "{| vars.StorageAccountName |}"
         },
         "accountType": {
             "value": "Standard_RAGRS"
