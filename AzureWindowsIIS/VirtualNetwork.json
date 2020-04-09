@@ -8,31 +8,7 @@
         "virtualNetworkName": {
             "type": "string"
         },
-        "resourceGroup": {
-            "type": "string"
-        },
-        "addressSpaces": {
-            "type": "array"
-        },
-        "ipv6Enabled": {
-            "type": "bool"
-        },
-        "subnetCount": {
-            "type": "int"
-        },
-        "subnet0_name": {
-            "type": "string"
-        },
-        "subnet0_addressRange": {
-            "type": "string"
-        },
         "ddosProtectionPlanEnabled": {
-            "type": "bool"
-        },
-        "firewallEnabled": {
-            "type": "bool"
-        },
-        "bastionEnabled": {
             "type": "bool"
         }
     },
