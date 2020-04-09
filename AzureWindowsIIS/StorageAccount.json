@@ -22,11 +22,10 @@
         }
     },
     "variables": {
-        "storageAccountName": "[tolower(concat(resourceGroup().name, parameters('storageAccountName')))]"
     },
     "resources": [
         {
-            "name": "[variables('storageAccountName')]",
+            "name": "[parameters('storageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2019-06-01",
             "location": "[parameters('location')]",
