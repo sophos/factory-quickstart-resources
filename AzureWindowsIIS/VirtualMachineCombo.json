@@ -35,12 +35,6 @@
         "adminPassword": {
             "type": "secureString"
         },
-        "modulesUrl": {
-            "type": "String"
-        },
-        "configurationFunction": {
-            "type": "SecureString"
-        },
         "publicIpAddressName": {
             "type": "string"
         },
@@ -60,8 +54,7 @@
         }
     },
     "variables": {
-        "vnetId": "[concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]",
-        "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]",
+        "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
         "publicIpAddressId": "[concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/publicIPAddresses/', parameters('publicIpAddressName'))]",
         "networkSecurityGroupId": "[concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]"
     },
@@ -149,26 +142,6 @@
                         "provisionVmAgent": true
                     }
                 }
-            }
-        },
-        {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "apiVersion": "2019-07-01",
-            "name": "[concat(parameters('virtualMachineName'), '/Microsoft.Powershell.DSC')]",
-            "location": "westcentralus",
-            "dependsOn": [
-                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
-            ],
-            "properties": {
-                "autoUpgradeMinorVersion": true,
-                "publisher": "Microsoft.Powershell",
-                "type": "DSC",
-                "typeHandlerVersion": "2.76",
-                "settings": {
-                    "modulesUrl": "[parameters('modulesUrl')]",
-                    "configurationFunction": "[parameters('configurationFunction')]"
-                },
-                "protectedSettings": {}
             }
         }
     ],
