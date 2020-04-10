@@ -143,7 +143,7 @@
     "outputs": {
         "returnedIPAddress": {
             "type": "string",
-            "value": "[reference(variables('publicIPAddressName')).ipAddress]"
+            "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))).ipAddress]"
         }
     }
 }
