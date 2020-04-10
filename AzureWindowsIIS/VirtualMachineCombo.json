@@ -144,7 +144,7 @@
     "outputs": {
         "returnedIPAddress": {
             "type": "string",
-            "value": "[reference(parameters('publicIpAddressName')).ipAddress]"
+            "value": "[reference(variables('publicIPAddressName')).ipAddress]"
         }
     }
 }
