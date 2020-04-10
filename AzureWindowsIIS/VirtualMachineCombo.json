@@ -5,9 +5,6 @@
         "location": {
             "type": "string"
         },
-        "subscriptionID": {
-            "type": "string"
-        },
         "networkSecurityGroupName": {
             "type": "string"
         },
@@ -52,7 +49,7 @@
         "networkInterfaceName": "[concat(parameters('virtualMachineName'), '-nic')]",
         "publicIPAddressName": "[concat(parameters('virtualMachineName'), '-ip')]",
         "publicIpAddressId": "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
-        "networkSecurityGroupId": "[concat('/subscriptions/', parameters('subscriptionId'), '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]"
+        "networkSecurityGroupId": "[resourceId('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]"
     },
     "resources": [
         {
