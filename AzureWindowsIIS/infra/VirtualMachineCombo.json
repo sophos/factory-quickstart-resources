@@ -138,6 +138,28 @@
                     }
                 }
             }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "apiVersion": "2018-10-01",
+            "name": "[ concat(parameters('virtualMachineName'), '/ConfigureRemotingForAnsible') ]",
+            "location": "[ parameters('location') ]",
+            "dependsOn": [
+                "[ concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName')) ]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Compute",
+                "type": "CustomScriptExtension",
+                "typeHandlerVersion": "1.9",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "fileUris": [
+                    "https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"
+                    ],
+                "commandToExecute": "powershell -NoProfile -ExecutionPolicy Unrestricted -File ConfigureRemotingForAnsible.ps1 -EnableCredSSP -ForceNewSSLCert"
+                },
+                "protectedSettings": {}
+            }
         }
     ],
     "outputs": {
