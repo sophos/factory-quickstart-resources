@@ -42,9 +42,6 @@
                 "Basic",
                 "Standard"
             ]
-        },
-        "storageAccountName": {
-            "type": "string"
         }
     },
     "variables": {
@@ -104,8 +101,7 @@
             "apiVersion": "2019-07-01",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Network/networkInterfaces/', variables('networkInterfaceName'))]",
-                "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]"
+                "[concat('Microsoft.Network/networkInterfaces/', variables('networkInterfaceName'))]"
             ],
             "properties": {
                 "hardwareProfile": {
