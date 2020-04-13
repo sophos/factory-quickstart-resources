@@ -42,6 +42,9 @@
                 "Basic",
                 "Standard"
             ]
+        },
+        "storageAccountName": {
+            "type": "string"
         }
     },
     "variables": {
@@ -101,7 +104,8 @@
             "apiVersion": "2019-07-01",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Network/networkInterfaces/', variables('networkInterfaceName'))]"
+                "[concat('Microsoft.Network/networkInterfaces/', variables('networkInterfaceName'))]",
+                "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]"
             ],
             "properties": {
                 "hardwareProfile": {
@@ -135,6 +139,12 @@
                     "windowsConfiguration": {
                         "enableAutomaticUpdates": true,
                         "provisionVmAgent": true
+                    }
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net/')]"
                     }
                 }
             }
