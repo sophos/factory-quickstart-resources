@@ -141,7 +141,7 @@
         }
     ],
     "outputs": {
-        "returnedIPAddress": {
+        "publicIPAddress": {
             "type": "string",
             "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))).ipAddress]"
         },
