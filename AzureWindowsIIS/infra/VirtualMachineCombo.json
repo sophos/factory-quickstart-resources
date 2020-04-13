@@ -144,6 +144,10 @@
         "returnedIPAddress": {
             "type": "string",
             "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))).ipAddress]"
-        }
+        },
+        "publicIPAddressName": {
+                    "type": "string",
+                    "value": "[variables('publicIPAddressName')]"
+                }
     }
 }
