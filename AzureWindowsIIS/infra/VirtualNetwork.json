@@ -10,6 +10,9 @@
         },
         "ddosProtectionPlanEnabled": {
             "type": "bool"
+        },
+        "subnetName": {
+            "type": "string"
         }
     },
     "variables": {},
@@ -29,7 +32,7 @@
                 },
                 "subnets": [
                     {
-                        "name": "default",
+                        "name": "[parameters('subnetName')]",
                         "properties": {
                             "addressPrefix": "10.0.0.0/24"
                         }
