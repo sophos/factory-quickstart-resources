@@ -42,6 +42,9 @@
                 "Basic",
                 "Standard"
             ]
+        },
+        "storageAccountName": {
+            "type": "string"
         }
     },
     "variables": {
